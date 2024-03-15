@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { Superpower } from 'src/database/entities/superpowers.entity';
+import { Superpower } from 'src/superpowers/entities/superpowers.entity';
 import { SuperpowersController } from './controllers/superpowers.controller';
 import { SuperpowersService } from './services/superpowers.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
