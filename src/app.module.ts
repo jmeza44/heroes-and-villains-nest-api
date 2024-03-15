@@ -1,21 +1,16 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { HeroesModule } from './heroes/heroes.module';
-import { VillainsModule } from './villains/villains.module';
-import { VillainsController } from './villains/controllers/villains.controller';
-
-import configuration from './configuration';
+import { CharactersModule } from './characters/characters.module';
+import { SuperpowersModule } from './superpowers/superpowers.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true, load: [configuration] }),
-    HeroesModule,
-    VillainsModule,
+    ConfigModule.forRoot({ isGlobal: true }),
+    CharactersModule,
+    SuperpowersModule,
   ],
-  controllers: [AppController, VillainsController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

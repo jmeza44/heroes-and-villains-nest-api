@@ -1,16 +1,17 @@
 import { DataSource } from 'typeorm';
-import { Heroe } from './entities/heroe.entity';
+import { Character } from './entities/character.entity';
+import { Superpower } from './entities/superpowers.entity';
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
-  host: process.env['DATABASE_HOST'],
-  port: Number(process.env['DATABASE_PORT']),
-  username: process.env['DATABASE_USER'],
-  password: process.env['DATABASE_PASSWORD'],
-  database: process.env['DATABASE_NAME'],
+  host: process.env['APP_DATABASE_HOST'],
+  port: parseInt(process.env['APP_DATABASE_PORT']),
+  username: process.env['APP_DATABASE_USER'],
+  password: process.env['APP_DATABASE_PASSWORD'],
+  database: process.env['APP_DATABASE_NAME'],
   synchronize: true,
   logging: true,
-  entities: [Heroe],
+  entities: [Character, Superpower],
   subscribers: [],
   migrations: [],
 });
