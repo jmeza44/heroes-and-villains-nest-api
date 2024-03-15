@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
-import { Superpower } from 'src/database/entities/superpowers.entity';
+import { Superpower } from '../entities/superpowers.entity';
 
 @Injectable()
 export class SuperpowersService {

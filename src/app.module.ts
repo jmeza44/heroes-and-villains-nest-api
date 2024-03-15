@@ -4,8 +4,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { CharactersModule } from './characters/characters.module';
 import { SuperpowersModule } from './superpowers/superpowers.module';
-import { Character } from './database/entities/character.entity';
-import { Superpower } from './database/entities/superpowers.entity';
+
+import { Character } from './characters/entities/character.entity';
+import { Superpower } from './superpowers/entities/superpowers.entity';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -23,7 +25,7 @@ import { Superpower } from './database/entities/superpowers.entity';
     CharactersModule,
     SuperpowersModule,
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [],
 })
 export class AppModule {}

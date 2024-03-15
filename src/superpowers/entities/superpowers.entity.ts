@@ -5,7 +5,7 @@ import {
   BaseEntity,
   ManyToOne,
 } from 'typeorm';
-import { Character } from './character.entity';
+import { Character } from '../../characters/entities/character.entity';
 
 @Entity()
 export class Superpower extends BaseEntity {
