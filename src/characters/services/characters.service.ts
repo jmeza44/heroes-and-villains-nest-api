@@ -17,11 +17,14 @@ export class CharactersService {
   }
 
   async findAll(): Promise<Character[]> {
-    return this.characterRepository.find();
+    return this.characterRepository.find({ relations: { superpowers: true } });
   }
 
   async findOne(id: number): Promise<Character> {
-    return this.characterRepository.findOne({ where: { id } });
+    return this.characterRepository.findOne({
+      where: { id },
+      relations: { superpowers: true },
+    });
   }
 
   async update(
