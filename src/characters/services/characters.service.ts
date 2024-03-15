@@ -1,12 +1,15 @@
 import { Injectable } from '@nestjs/common';
-import { AppDataSource } from 'src/database/data-source';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+
 import { Character } from 'src/database/entities/character.entity';
 
 @Injectable()
 export class CharactersService {
-  characterRepository = AppDataSource.getRepository(Character);
-
-  constructor() {}
+  constructor(
+    @InjectRepository(Character)
+    private readonly characterRepository: Repository<Character>,
+  ) {}
 
   async create(characterData: Partial<Character>): Promise<Character> {
     const character = this.characterRepository.create(characterData);

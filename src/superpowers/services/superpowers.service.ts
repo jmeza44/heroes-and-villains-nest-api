@@ -1,12 +1,15 @@
 import { Injectable } from '@nestjs/common';
-import { AppDataSource } from 'src/database/data-source';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+
 import { Superpower } from 'src/database/entities/superpowers.entity';
 
 @Injectable()
 export class SuperpowersService {
-  superpowerRepository = AppDataSource.getRepository(Superpower);
-
-  constructor() {}
+  constructor(
+    @InjectRepository(Superpower)
+    private readonly superpowerRepository: Repository<Superpower>,
+  ) {}
 
   async create(superpowerData: Partial<Superpower>): Promise<Superpower> {
     const superpower = this.superpowerRepository.create(superpowerData);
